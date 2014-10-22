@@ -3,45 +3,42 @@ package state.connection;
 public class EstadoEsperando extends Estado {
 
     @Override
-    public void abrir(Conexion conexion) {
-        // TODO Auto-generated method stub
-
+    public void abrir(Conexion conexion) {        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Acción no permitida...");
     }
 
     @Override
     public void cerrar(Conexion conexion) {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Acción no permitida...");
     }
 
     @Override
     public void enviar(String msg, Link link, Conexion conexion) {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Acción no permitida...");
     }
 
     @Override
     public void recibir(int respuesta, Conexion conexion) {
-        // TODO Auto-generated method stub
-
+        if(respuesta==Link.ACK){
+            conexion.setEstado(new EstadoPreparado());
+        }else{
+            conexion.setEstado(new EstadoCerrado());
+        }
     }
 
     @Override
     public void iniciar(Conexion conexion) {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Acción no permitida...");
     }
 
     @Override
     public void parar(Conexion conexion) {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Acción no permitida...");
     }
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return null;
+        return "ESPERANDO";
     }
 
 }

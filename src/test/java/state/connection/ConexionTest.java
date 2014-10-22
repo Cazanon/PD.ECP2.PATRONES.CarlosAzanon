@@ -18,19 +18,19 @@ public class ConexionTest {
 
     @Test
     public void testEstadoInicial() {
-        assertEquals(Estados.CERRADO, this.conexion.getEstado());
+        assertEquals("CERRADO", this.conexion.getEstado().toString().toString());
     }
 
     @Test
     public void testCerradoAbrir() {
         this.conexion.abrir();
-        assertEquals(Estados.PREPARADO, this.conexion.getEstado());
+        assertEquals("PREPARADO", this.conexion.getEstado().toString());
     }
 
     @Test
     public void testCerradoCerrar() {
         this.conexion.cerrar();
-        assertEquals(Estados.CERRADO, this.conexion.getEstado());
+        assertEquals("CERRADO", this.conexion.getEstado().toString());
     }
 
     @Test
@@ -77,35 +77,35 @@ public class ConexionTest {
     public void testPreparadoAbrir() {
         this.conexion.abrir();
         this.conexion.abrir();
-        assertEquals(Estados.PREPARADO, this.conexion.getEstado());
+        assertEquals("PREPARADO", this.conexion.getEstado().toString());
     }
 
     @Test
     public void testPreparadoCerrar() {
         this.conexion.abrir();
         this.conexion.cerrar();
-        assertEquals(Estados.CERRADO, this.conexion.getEstado());
+        assertEquals("CERRADO", this.conexion.getEstado().toString());
     }
 
     @Test
     public void testPreparadoParar() {
         this.conexion.abrir();
         this.conexion.parar();
-        assertEquals(Estados.PARADO, this.conexion.getEstado());
+        assertEquals("PARADO", this.conexion.getEstado().toString());
     }
 
     @Test
     public void testPreparadoIniciar() {
         this.conexion.abrir();
         this.conexion.iniciar();
-        assertEquals(Estados.PREPARADO, this.conexion.getEstado());
+        assertEquals("PREPARADO", this.conexion.getEstado().toString());
     }
 
     @Test
     public void testPreparadoEnviar() {
         this.conexion.abrir();
         this.conexion.enviar("...");
-        assertEquals(Estados.ESPERANDO, this.conexion.getEstado());
+        assertEquals("ESPERANDO", this.conexion.getEstado().toString());
         assertEquals("...", link.getMsg());
     }
 
@@ -149,7 +149,7 @@ public class ConexionTest {
         this.conexion.abrir();
         this.conexion.parar();
         this.conexion.parar();
-        assertEquals(Estados.PARADO, this.conexion.getEstado());
+        assertEquals("PARADO", this.conexion.getEstado().toString());
     }
 
     @Test
@@ -157,7 +157,7 @@ public class ConexionTest {
         this.conexion.abrir();
         this.conexion.parar();
         this.conexion.iniciar();
-        assertEquals(Estados.PREPARADO, this.conexion.getEstado());
+        assertEquals("PREPARADO", this.conexion.getEstado().toString());
     }
 
     @Test
@@ -249,7 +249,7 @@ public class ConexionTest {
         this.conexion.abrir();
         this.conexion.enviar("...");
         this.conexion.recibir(Link.ACK);
-        assertEquals(Estados.PREPARADO, this.conexion.getEstado());
+        assertEquals("PREPARADO", this.conexion.getEstado().toString());
     }
 
     @Test
@@ -257,7 +257,7 @@ public class ConexionTest {
         this.conexion.abrir();
         this.conexion.enviar("...");
         this.conexion.recibir(1);
-        assertEquals(Estados.CERRADO, this.conexion.getEstado());
+        assertEquals("CERRADO", this.conexion.getEstado().toString());
     }
 
 
