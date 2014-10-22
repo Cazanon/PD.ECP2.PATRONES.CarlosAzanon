@@ -1,11 +1,11 @@
 package factoryMethod.naturalNumber;
 
-public class NaturalNumberEs {
+public class NaturalNumberES {
     private int value;
 
     private static final String[] textValue = {"cero", "uno", "dos", "tres", "cuatro", "cinco"};
 
-    public NaturalNumberEs(int value) {
+    public NaturalNumberES(int value) {
         this.setValue(value);
     }
 
@@ -24,7 +24,7 @@ public class NaturalNumberEs {
 
     public String getTextValue() {
         if (this.value < textValue.length) {
-            return TestNumber.textValue[this.value];
+            return NaturalNumberTest.textValue[this.value];
         } else {
             return "???";
         }

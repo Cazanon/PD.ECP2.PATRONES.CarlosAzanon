@@ -1,6 +1,5 @@
 package factoryMethod.naturalNumber;
 
-public class TestNumber {
-
+public class NaturalNumberManager {
 
 }
