@@ -5,9 +5,9 @@ public abstract class Operacion extends Expresion{
     private Expresion expresion1;
     private Expresion expresion2;
     
-    public Operacion(Expresion exppresion1,Expresion expresion2){
-        setExpresion1(expresion1);
-        setExpresion2(expresion2);
+    public Operacion(Expresion expresion1,Expresion expresion2){
+        this.expresion1=expresion1;
+        this.expresion2=expresion2;
     }
     
     public Expresion getExpresion1(){
