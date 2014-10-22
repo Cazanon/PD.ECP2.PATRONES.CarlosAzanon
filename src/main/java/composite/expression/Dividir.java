@@ -1,9 +1,19 @@
 package composite.expression;
 
-public class Dividir extends Expresion {
+public class Dividir extends Operacion {
 
-    public Dividir(Expresion exp1, Numero numero) {
-        // TODO Auto-generated constructor stub
+    public Dividir(Expresion expresion1, Expresion expresion2) {
+        super(expresion1, expresion2);
     }
 
+    @Override
+    public int operar() {
+        return getExpresion1().operar()/getExpresion2().operar();
+    }
+
+    @Override
+    public String toString() {
+        return "("+getExpresion1().toString()+"/"+getExpresion2().toString()+")";
+    }
+    
 }

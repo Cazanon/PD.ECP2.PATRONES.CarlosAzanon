@@ -1,9 +1,19 @@
 package composite.expression;
 
-public class Multiplicar extends Expresion {
+public class Multiplicar extends Operacion {
+    
+    public Multiplicar(Expresion expresion1, Expresion expresion2) {
+        super(expresion1, expresion2);
+    }
 
-    public Multiplicar(Expresion exp1, Numero numero) {
-        // TODO Auto-generated constructor stub
+    @Override
+    public int operar() {
+        return getExpresion1().operar()*getExpresion2().operar();
+    }
+
+    @Override
+    public String toString() {
+        return "("+getExpresion1().toString()+"*"+getExpresion2().toString()+")";
     }
 
 }

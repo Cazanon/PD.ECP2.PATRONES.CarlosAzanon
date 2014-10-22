@@ -2,8 +2,20 @@ package composite.expression;
 
 public class Numero extends Expresion {
 
-    public Numero(int i) {
-        // TODO Auto-generated constructor stub
+    private int numero;
+    
+    public Numero(int numero){
+        this.numero = numero;
+    }
+    
+    @Override
+    public int operar(){
+        return numero;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(numero);
     }
 
 }

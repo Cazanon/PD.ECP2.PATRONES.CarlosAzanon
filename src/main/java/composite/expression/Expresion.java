@@ -1,10 +1,7 @@
 package composite.expression;
 
-public class Expresion {
+public abstract class Expresion {
 
-    public Object operar() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
+    public abstract int operar();
+    
 }
