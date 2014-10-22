@@ -4,7 +4,6 @@ public class EstadoCerrado extends Estado {
 
     @Override
     public void abrir(Conexion conexion) {
-        // TODO Auto-generated method stub
 
     }
 

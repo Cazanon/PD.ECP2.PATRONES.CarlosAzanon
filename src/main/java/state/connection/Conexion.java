@@ -43,5 +43,9 @@ public class Conexion {
     public void recibir(int respuesta) {
         estado.recibir(respuesta,this);
     }
+    
+    public void setEstado(Estado estado){
+        this.estado=estado;
+    }
 
 }
