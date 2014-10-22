@@ -2,7 +2,7 @@ package calculadora;
 
 public class ComandoRestar implements Comando {
 
-	public ComandoRestar(TestCalc calc) {
+	public ComandoRestar(CalculadoraTest calc) {
 		// TODO Auto-generated constructor stub
 	}
 

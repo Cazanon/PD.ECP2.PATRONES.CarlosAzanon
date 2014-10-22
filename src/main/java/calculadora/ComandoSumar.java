@@ -4,9 +4,9 @@ import upm.jbb.IO;
 
 public class ComandoSumar implements Comando {
 
-	private TestCalc calculadora;
+	private CalculadoraTest calculadora;
 	
-	public ComandoSumar(TestCalc calc) {
+	public ComandoSumar(CalculadoraTest calc) {
 		calculadora=calc;
 	}
 

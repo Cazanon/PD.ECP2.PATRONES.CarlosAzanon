@@ -4,9 +4,9 @@ import upm.jbb.IO;
 
 public class ComandoImprimir implements Comando {
 
-	private TestCalc calculadora;
+	private CalculadoraTest calculadora;
 	
-	public ComandoImprimir(TestCalc calc) {
+	public ComandoImprimir(CalculadoraTest calc) {
 		calculadora=calc;
 	}
 
