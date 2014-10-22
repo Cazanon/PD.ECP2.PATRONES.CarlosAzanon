@@ -2,101 +2,46 @@ package state.connection;
 
 public class Conexion {
     
-    private Estados estado;
+    private Estado estado;
 
     private Link link;
 
     public Conexion(Link link) {
         assert link != null;
         this.link = link;
-        this.estado = Estados.CERRADO;
+        this.estado = new EstadoCerrado();
     }
 
     public Link getLink() {
         return link;
     }
 
-    public Estados getEstado() {
+    public Estado getEstado() {
         return this.estado;
     }
 
     public void abrir() {
-        if (this.estado == Estados.CERRADO) {
-            this.estado = Estados.PREPARADO;
-        } else if (this.estado == Estados.PARADO) {
-            throw new UnsupportedOperationException("Acción no permitida... ");
-        } else if (this.estado == Estados.PREPARADO) {
-        } else if (this.estado == Estados.ESPERANDO) {
-            throw new UnsupportedOperationException("Acción no permitida... ");
-        } else
-            assert false : "estado imposible";
+        estado.abrir(this);
     }
 
     public void cerrar() {
-        if (this.estado == Estados.CERRADO) {
-        } else if (this.estado == Estados.PARADO) {
-            throw new UnsupportedOperationException("Acción no permitida... ");
-        } else if (this.estado == Estados.PREPARADO) {
-            this.estado = Estados.CERRADO;
-        } else if (this.estado == Estados.ESPERANDO) {
-            throw new UnsupportedOperationException("Acción no permitida... ");
-        }
-        assert false : "estado imposible";
+        estado.cerrar(this);
     }
 
     public void parar() {
-        if (this.estado == Estados.CERRADO) {
-            throw new UnsupportedOperationException("Acción no permitida... ");
-        } else if (this.estado == Estados.PARADO) {
-        } else if (this.estado == Estados.PREPARADO) {
-            this.estado = Estados.PARADO;
-        } else if (this.estado == Estados.ESPERANDO) {
-            throw new UnsupportedOperationException("Acción no permitida... ");
-        }
-        assert false : "estado imposible";
+        estado.parar(this);
     }
 
     public void iniciar() {
-        if (this.estado == Estados.CERRADO) {
-            throw new UnsupportedOperationException("Acción no permitida... ");
-        } else if (this.estado == Estados.PARADO) {
-            this.estado = Estados.PREPARADO;
-        } else if (this.estado == Estados.PREPARADO) {
-        } else if (this.estado == Estados.ESPERANDO) {
-            throw new UnsupportedOperationException("Acción no permitida... ");
-        }
-        assert false : "estado imposible";
+        estado.iniciar(this);
     }
 
     public void enviar(String msg) {
-        if (this.estado == Estados.CERRADO) {
-            throw new UnsupportedOperationException("Acción no permitida... ");
-        } else if (this.estado == Estados.PARADO) {
-            throw new UnsupportedOperationException("Acción no permitida... ");
-        } else if (this.estado == Estados.PREPARADO) {
-            this.link.enviar(msg);
-            this.estado = Estados.ESPERANDO;
-        } else if (this.estado == Estados.ESPERANDO) {
-            throw new UnsupportedOperationException("Acción no permitida... ");
-        }
-        assert false : "estado imposible";
+        estado.enviar(msg,this.link,this);
     }
 
     public void recibir(int respuesta) {
-        if (this.estado == Estados.CERRADO) {
-            throw new UnsupportedOperationException("Acción no permitida... ");
-        } else if (this.estado == Estados.PARADO) {
-            throw new UnsupportedOperationException("Acción no permitida... ");
-        } else if (this.estado == Estados.PREPARADO) {
-            throw new UnsupportedOperationException("Acción no permitida... ");
-        } else if (this.estado == Estados.ESPERANDO) {
-            if (respuesta == 0) {
-                this.estado = Estados.PREPARADO;
-            } else {
-                this.estado = Estados.CERRADO;
-            }
-        }
-        assert false : "estado imposible";
+        estado.recibir(respuesta,this);
     }
 
 }
