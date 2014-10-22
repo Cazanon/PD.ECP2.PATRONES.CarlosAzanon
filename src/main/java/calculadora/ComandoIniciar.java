@@ -2,7 +2,7 @@ package calculadora;
 
 public class ComandoIniciar implements Comando {
 
-	public ComandoIniciar(Calculadora calc) {
+	public ComandoIniciar(TestCalc calc) {
 		// TODO Auto-generated constructor stub
 	}
 

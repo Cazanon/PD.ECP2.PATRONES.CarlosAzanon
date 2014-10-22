@@ -24,7 +24,7 @@ public class NaturalNumberEs {
 
     public String getTextValue() {
         if (this.value < textValue.length) {
-            return NaturalNumberEs.textValue[this.value];
+            return TestNumber.textValue[this.value];
         } else {
             return "???";
         }
