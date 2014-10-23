@@ -2,21 +2,27 @@ package calculadora;
 
 import upm.jbb.IO;
 
-public class ComandoDeshacer extends ComandoAbstract{
+public class ComandoDeshacer extends ComandoMementableAbstract{
 
-    public ComandoDeshacer(Calculadora calc) {
-        super(calc);
+    public ComandoDeshacer(CalculadoraMementable calc,GestorMementos<MementoCalculadora> gestor) {
+        super(calc,gestor);
     }
-
-    @Override
-    public String name() {
-        return Comando.imprimir;
-    }
-
+    
     @Override
     public void execute() {
-        IO.out.println("Resultado total: " + this.getCalculadora().getTotal());
+        String[] mementos=this.getGestorMementos().keys();
+        if(mementos.length > 0){
+            String nombreMemento=String.valueOf(IO.in.select(mementos,"Seleccionar estado guardado"));
+            MementoCalculadora memento = this.getGestorMementos().getMemento(nombreMemento);
+            this.getCalculadoraMementable().restaurarMemento(memento);
+        }else{
+            IO.out.println("No hay estados guardados");
+        }
     }
-
+    
+    @Override
+    public String name() {
+        return ComandoMementableAbstract.deshacer;
+    }
 
 }

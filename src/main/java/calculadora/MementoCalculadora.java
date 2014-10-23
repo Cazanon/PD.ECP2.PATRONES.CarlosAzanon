@@ -1,14 +1,15 @@
 package calculadora;
 
 public class MementoCalculadora {
+    
+    private int memento;
 
-    public MementoCalculadora(int total) {
-        // TODO Auto-generated constructor stub
+    public MementoCalculadora(int memento) {
+        this.memento=memento;
     }
 
     public int getMemento() {
-        // TODO Auto-generated method stub
-        return 0;
+        return this.memento;
     }
 
 }

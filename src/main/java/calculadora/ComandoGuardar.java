@@ -2,21 +2,22 @@ package calculadora;
 
 import upm.jbb.IO;
 
-public class ComandoGuardar extends ComandoAbstract{
-
-    public ComandoGuardar(Calculadora calc) {
-        super(calc);
+public class ComandoGuardar extends ComandoMementableAbstract{
+    
+    public ComandoGuardar(CalculadoraMementable calc,GestorMementos<MementoCalculadora> gestor) {
+        super(calc,gestor);
     }
-
-    @Override
-    public String name() {
-        return Comando.imprimir;
-    }
-
+    
     @Override
     public void execute() {
-        IO.out.println("Resultado total: " + this.getCalculadora().getTotal());
+        String nombreMemento=IO.in.readString("Nombre de guardado");
+        MementoCalculadora memento=this.getCalculadoraMementable().crearMemento();
+        this.getGestorMementos().addMemento(nombreMemento,memento);
     }
-
+    
+    @Override
+    public String name() {
+        return ComandoMementableAbstract.guardar;
+    }
 
 }
