@@ -2,23 +2,21 @@ package calculadora;
 
 import upm.jbb.IO;
 
-public class ComandoImprimir implements Comando {
+public class ComandoImprimir extends ComandoAbstract{
 
-	private CalculadoraTest calculadora;
-	
-	public ComandoImprimir(CalculadoraTest calc) {
-		calculadora=calc;
-	}
+    public ComandoImprimir(Calculadora calc) {
+        super(calc);
+    }
 
-	@Override
-	public String name() {
-		return Comando.imprimir;
-	}
+    @Override
+    public String name() {
+        return Comando.imprimir;
+    }
 
-	@Override
-	public void execute() {
-		int valor=calculadora.getTotal();
-		IO.out.print(valor);
-	}
+    @Override
+    public void execute() {
+        IO.out.println("Resultado total: " + this.getCalculadora().getTotal());
+    }
+
 
 }
