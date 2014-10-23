@@ -1,31 +1,19 @@
 package calculadora;
 
-public class CalculadoraMementable {
+public class CalculadoraMementable extends Calculadora implements Mementable<MementoCalculadora>{
 	
-    private int total;
-
     public CalculadoraMementable() {
-        this.iniciar();
+        super();
     }
 
-    public int getTotal() {
-        return total;
+    @Override
+    public MementoCalculadora crearMemento() {
+        return new MementoCalculadora(this.getTotal());
     }
 
-    protected void setTotal(int total) {
-        this.total = total;
-    }
-
-    public void sumar(int valor) {
-        this.setTotal(this.total + valor);
-    }
-
-    public void restar(int valor) {
-        this.setTotal(this.total - valor);
-    }
-
-    public void iniciar() {
-        this.setTotal(0);
+    @Override
+    public void restaurarMemento(MementoCalculadora memento) {
+        this.setTotal(memento.getMemento());
     }
 
 }
