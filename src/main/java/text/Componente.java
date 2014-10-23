@@ -1,6 +1,7 @@
 package text;
 
 public abstract class Componente {
+    //Composite
     
     public abstract void add(Componente componente);
 

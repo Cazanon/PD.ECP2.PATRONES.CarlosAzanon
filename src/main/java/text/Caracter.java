@@ -1,17 +1,24 @@
 package text;
 
 public class Caracter extends Componente{
+    
+    private char caracter;
+
+    public Caracter(char caracter) {
+        this.caracter=caracter;
+    }
 
     @Override
-    public void add(Componente componente) {
-        // TODO Auto-generated method stub
-        
+    public void add(Componente componente) {        
     }
 
     @Override
     public String dibujar(boolean mayusculas) {
-        // TODO Auto-generated method stub
-        return null;
+        if(mayusculas){
+            return String.valueOf(caracter).toUpperCase();
+        }else{
+            return String.valueOf(caracter);    
+        }
     }
-
+    
 }
