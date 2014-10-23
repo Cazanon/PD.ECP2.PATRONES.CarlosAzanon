@@ -1,20 +1,21 @@
 package calculadora;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
-public class GestorMementos {
-    private Map<String, Comando> comandos = new HashMap<>();
+public class GestorMementos<T>{
+    
+    private SortedMap<String,T> mementos=new TreeMap<String,T>();
 
-    public void add(Comando comando) {
-        this.comandos.put(comando.name(), comando);
+    public void addMemento(String key,T memento) {
+        this.mementos.put(this.mementos.size()+":"+key, memento);
     }
 
-    public void execute(String key) {
-        this.comandos.get(key).execute();
+    public T getMemento(String key) {
+        return this.mementos.get(key);
     }
 
     public String[] keys() {
-        return this.comandos.keySet().toArray(new String[0]);
+        return this.mementos.keySet().toArray(new String[0]);
     }
 }

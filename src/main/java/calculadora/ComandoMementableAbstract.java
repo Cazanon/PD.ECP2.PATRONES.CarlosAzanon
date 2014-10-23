@@ -1,15 +1,23 @@
 package calculadora;
 
-public abstract class ComandoMementableAbstract implements Comando{
+public abstract class ComandoMementableAbstract extends ComandoAbstract{
 
-    private Calculadora calc;
+    private CalculadoraMementable calcMementable;
+
+    private GestorMementos<MementoCalculadora> gestor;
     
-    public ComandoMementableAbstract(Calculadora calc){
-        this.calc=calc;
+    public ComandoMementableAbstract(CalculadoraMementable calcMementable, GestorMementos<MementoCalculadora> gestor) {
+        super(calcMementable);
+        this.calcMementable=calcMementable;
+        this.gestor=gestor;
     }
     
-    public Calculadora getCalculadora(){
-        return this.calc;
+    public CalculadoraMementable getCalculadoraMementable(){
+        return calcMementable;
+    }
+        
+    public GestorMementos<MementoCalculadora> getGestorMementos(){
+        return this.gestor;
     }
     
 }
