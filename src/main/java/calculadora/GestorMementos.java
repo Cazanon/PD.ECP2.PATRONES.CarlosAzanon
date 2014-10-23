@@ -8,7 +8,7 @@ public class GestorMementos<T>{
     private SortedMap<String,T> mementos=new TreeMap<String,T>();
 
     public void addMemento(String key,T memento) {
-        this.mementos.put(this.mementos.size()+":"+key, memento);
+        this.mementos.put(this.mementos.size()+": "+key, memento);
     }
 
     public T getMemento(String key) {
