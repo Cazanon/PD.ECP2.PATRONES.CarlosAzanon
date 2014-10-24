@@ -7,14 +7,15 @@ public class Parrafo extends Componente {
     private ArrayList<Caracter> parrafo;
     
     public Parrafo(){
-        parrafo=new ArrayList<Caracter>();
+        this.parrafo=new ArrayList<Caracter>();
+        this.isCaracter=false;
     }
     
     @Override
     public void add(Componente componente){
-        try{
+        if(componente.isCaracter){
             this.parrafo.add((Caracter)componente);         
-        }catch(ClassCastException e1){
+        }else{
             throw new UnsupportedOperationException();
         }       
     }

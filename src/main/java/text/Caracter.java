@@ -6,6 +6,7 @@ public class Caracter extends Componente{
 
     public Caracter(char caracter) {
         this.caracter=caracter;
+        this.isCaracter=true;
     }
 
     @Override

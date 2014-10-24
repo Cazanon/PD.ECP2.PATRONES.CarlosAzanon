@@ -7,20 +7,17 @@ public class Texto extends Componente {
     private ArrayList<Componente> texto;
     
     public Texto(){
-        texto=new ArrayList<Componente>();
+        this.texto=new ArrayList<Componente>();
+        this.isCaracter=false;
     }
     
     @Override
     public void add(Componente componente){
-        try{
-            this.texto.add((Texto)componente);         
-        }catch(ClassCastException e1){
-            try{
-                this.texto.add((Parrafo)componente);           
-            }catch(ClassCastException e2){
-                throw new UnsupportedOperationException();
-            }
-        }       
+        if(componente.isCaracter){
+            throw new UnsupportedOperationException();
+        }else{
+            this.texto.add(componente);   
+        }     
     }
 
     @Override
